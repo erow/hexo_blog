@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>erlang-rel | Personal Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="发布程序1.创建节点erlang总是以节点为单位组织的。使用rebar create-node nodeid=xxx可以生成files,reltool.config。里面包含了各种节点信息。
+
+reltool.config下面列举几个比较常用的参数：mod_cond:  
+
+all: 将会包含所有引用的模块。即在搜索路径下存在ebin的模块都会被包含。
+ebin: 只包含本模块。
+app: 包含本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="erlang-rel">
+<meta property="og:url" content="http://yoursite.com/2017/03/23/2017/erlang-rel/index.html">
+<meta property="og:site_name" content="Personal Blog">
+<meta property="og:description" content="发布程序1.创建节点erlang总是以节点为单位组织的。使用rebar create-node nodeid=xxx可以生成files,reltool.config。里面包含了各种节点信息。
+
+reltool.config下面列举几个比较常用的参数：mod_cond:  
+
+all: 将会包含所有引用的模块。即在搜索路径下存在ebin的模块都会被包含。
+ebin: 只包含本模块。
+app: 包含本">
+<meta property="og:updated_time" content="2017-03-23T09:19:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="erlang-rel">
+<meta name="twitter:description" content="发布程序1.创建节点erlang总是以节点为单位组织的。使用rebar create-node nodeid=xxx可以生成files,reltool.config。里面包含了各种节点信息。
+
+reltool.config下面列举几个比较常用的参数：mod_cond:  
+
+all: 将会包含所有引用的模块。即在搜索路径下存在ebin的模块都会被包含。
+ebin: 只包含本模块。
+app: 包含本">
+  
+    <link rel="alternate" href="/atom.xml" title="Personal Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Personal Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017/erlang-rel" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/23/2017/erlang-rel/" class="article-date">
+  <time datetime="2017-03-23T09:42:00.000Z" itemprop="datePublished">2017-03-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      erlang-rel
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="发布程序"><a href="#发布程序" class="headerlink" title="发布程序"></a>发布程序</h2><h3 id="1-创建节点"><a href="#1-创建节点" class="headerlink" title="1.创建节点"></a>1.创建节点</h3><p>erlang总是以节点为单位组织的。<br>使用<code>rebar create-node nodeid=xxx</code>可以生成<code>files,reltool.config</code>。里面包含了各种节点信息。</p>
+<ul>
+<li><p><a href="http://erlang.org/doc/man/reltool.html" title="reltool" target="_blank" rel="external">reltool.config</a><br>下面列举几个比较常用的参数：<br>mod_cond:  </p>
+<ol>
+<li>all: 将会包含所有引用的模块。即在搜索路径下存在ebin的模块都会被包含。</li>
+<li>ebin: 只包含本模块。</li>
+<li>app: 包含本模块和相关模块。</li>
+<li>derived ： 包含相关模块。</li>
+</ol>
+<p>lib_dir: 模块搜索目录。<br>excl_sys_filters:将包含在系统目录下匹配的文件。<br>profile: 影响<code>ncl_sys_filters, excl_sys_filters, incl_app_filters and excl_app_filters.</code>的作用</p>
+<ol>
+<li>development</li>
+<li>embedded</li>
+<li>standalone</li>
+</ol>
+<p>excl_lib:实验中，勿使用</p>
+<ul>
+<li>otp_root :不包含erlang运行环境ert  </li>
+</ul>
+<p>app_file: 拷贝app file的程度</p>
+<ol>
+<li>keep</li>
+<li>strip</li>
+<li>all</li>
+</ol>
+</li>
+</ul>
+<h2 id="2-升级"><a href="#2-升级" class="headerlink" title="2.升级"></a>2.升级</h2><p><a href="http://erlang.org/doc/man/appup.html" title="upgrade" target="_blank" rel="external">Application.appup</a> 文件描述了如何热升级代码<br>使用如下语法：<br><figure class="highlight prolog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="symbol">Vsn</span>,</div><div class="line">  [&#123;<span class="symbol">UpFromVsn</span>, <span class="symbol">Instructions</span>&#125;, ...],</div><div class="line">  [&#123;<span class="symbol">DownToVsn</span>, <span class="symbol">Instructions</span>&#125;, ...]&#125;.</div></pre></td></tr></table></figure></p>
+<p>Instructions 由以下内容构成：</p>
+<pre><code>{update, Mod}
+{update, Mod, supervisor}
+{update, Mod, Change}
+{update, Mod, DepMods}
+{update, Mod, Change, DepMods}
+{update, Mod, Change, PrePurge, PostPurge, DepMods}
+{update, Mod, Timeout, Change, PrePurge, PostPurge, DepMods}
+{update, Mod, ModType, Timeout, Change, PrePurge, PostPurge, DepMods}
+  Mod = atom()
+  ModType = static | dynamic
+  Timeout = int()&gt;0 | default | infinity
+  Change = soft | {advanced,Extra}
+    Extra = term()
+  PrePurge = PostPurge = soft_purge | brutal_purge
+  DepMods = [Mod]
+</code></pre><p>升级过程可以参见：<a href="http://erlang.org/doc/design_principles/release_handling.html" target="_blank" rel="external">Release Handling</a></p>
+<ol>
+<li><p>按照<a href="http://erlang.org/doc/design_principles/release_structure.html" title="创建版本" target="_blank" rel="external">Release</a>中所述的方法创建版本。</p>
+</li>
+<li><p>将释放转移到目标环境并安装在目标环境中。有关如何安装第一个目标系统的信息，请参阅系统原理。</p>
+</li>
+<li><p>对开发环境中的代码进行修改，例如错误更正。</p>
+</li>
+<li><p>在某些时候，需要制作新版本。相关的.app文件被更新，并写入一个新的.rel文件。</p>
+</li>
+<li><p>对于每个修改的应用程序，创建应用程序升级文件.appup。在此文件中，描述了如何在旧版本和新版本的应用程序之间进行升级和/或降级。</p>
+</li>
+<li><p>基于.appup文件，创建一个名为relup的版本升级文件。该文件描述如何在整个版本的旧版本和新版本之间升级和/或降级。</p>
+</li>
+<li><p>创建新的发行包并将其传输到目标系统。</p>
+</li>
+<li><p>使用发布处理程序解压缩新的发行包。</p>
+</li>
+<li><p>安装新版本，也使用发布处理程序。这是通过评估relup中的指令来完成的。可以添加，删除或重新加载模块，应用程序可以启动，停止或重新启动，等等。在某些情况下，甚至需要重启整个仿真器。</p>
+</li>
+</ol>
+<p><a href="http://erlang.org/doc/design_principles/appup_cookbook.html" title="升级办法" target="_blank" rel="external">不同功能的模块的升级办法</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/23/2017/erlang-rel/" data-id="cj0m7ir2y000fn6b70wf201vs" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/14/deal/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">报警处理流程</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/a/">a</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/language/">language</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tmp/">tmp</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/asdf/">asdf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/">go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/job/">job</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/asdf/" style="font-size: 10px;">asdf</a> <a href="/tags/go/" style="font-size: 10px;">go</a> <a href="/tags/job/" style="font-size: 10px;">job</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/23/2017/erlang-rel/">erlang-rel</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/14/deal/">报警处理流程</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/13/go/">golang</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/13/hello/">hello</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 erow<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

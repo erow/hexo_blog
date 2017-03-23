@@ -3,17 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Personal Blog</title>
+  <title>golang | Personal Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我是来自地球的火星人">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Personal Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="emacs 开发环境spacemacs已经集成了不少功能，但是缺少代码提示。因此还需要gocode来辅助。
+
+安装所需的命令
+
+go get -u -v github.com/nsf/gocodego get -u -v github.com/rogpeppe/godefgo get -u -v golang.org/x/tools/cmd/gurugo get -u -v golang.org/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="golang">
+<meta property="og:url" content="http://yoursite.com/2017/02/13/go/index.html">
 <meta property="og:site_name" content="Personal Blog">
-<meta property="og:description" content="我是来自地球的火星人">
+<meta property="og:description" content="emacs 开发环境spacemacs已经集成了不少功能，但是缺少代码提示。因此还需要gocode来辅助。
+
+安装所需的命令
+
+go get -u -v github.com/nsf/gocodego get -u -v github.com/rogpeppe/godefgo get -u -v golang.org/x/tools/cmd/gurugo get -u -v golang.org/">
+<meta property="og:updated_time" content="2017-03-14T03:07:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Personal Blog">
-<meta name="twitter:description" content="我是来自地球的火星人">
+<meta name="twitter:title" content="golang">
+<meta name="twitter:description" content="emacs 开发环境spacemacs已经集成了不少功能，但是缺少代码提示。因此还需要gocode来辅助。
+
+安装所需的命令
+
+go get -u -v github.com/nsf/gocodego get -u -v github.com/rogpeppe/godefgo get -u -v golang.org/x/tools/cmd/gurugo get -u -v golang.org/">
   
     <link rel="alternate" href="/atom.xml" title="Personal Blog" type="application/atom+xml">
   
@@ -62,170 +75,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-2017/erlang-rel" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/23/2017/erlang-rel/" class="article-date">
-  <time datetime="2017-03-23T09:42:00.000Z" itemprop="datePublished">2017-03-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/23/2017/erlang-rel/">erlang-rel</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="发布程序"><a href="#发布程序" class="headerlink" title="发布程序"></a>发布程序</h2><h3 id="1-创建节点"><a href="#1-创建节点" class="headerlink" title="1.创建节点"></a>1.创建节点</h3><p>erlang总是以节点为单位组织的。<br>使用<code>rebar create-node nodeid=xxx</code>可以生成<code>files,reltool.config</code>。里面包含了各种节点信息。</p>
-<ul>
-<li><p><a href="http://erlang.org/doc/man/reltool.html" title="reltool" target="_blank" rel="external">reltool.config</a><br>下面列举几个比较常用的参数：<br>mod_cond:  </p>
-<ol>
-<li>all: 将会包含所有引用的模块。即在搜索路径下存在ebin的模块都会被包含。</li>
-<li>ebin: 只包含本模块。</li>
-<li>app: 包含本模块和相关模块。</li>
-<li>derived ： 包含相关模块。</li>
-</ol>
-<p>lib_dir: 模块搜索目录。<br>excl_sys_filters:将包含在系统目录下匹配的文件。<br>profile: 影响<code>ncl_sys_filters, excl_sys_filters, incl_app_filters and excl_app_filters.</code>的作用</p>
-<ol>
-<li>development</li>
-<li>embedded</li>
-<li>standalone</li>
-</ol>
-<p>excl_lib:实验中，勿使用</p>
-<ul>
-<li>otp_root :不包含erlang运行环境ert  </li>
-</ul>
-<p>app_file: 拷贝app file的程度</p>
-<ol>
-<li>keep</li>
-<li>strip</li>
-<li>all</li>
-</ol>
-</li>
-</ul>
-<h2 id="2-升级"><a href="#2-升级" class="headerlink" title="2.升级"></a>2.升级</h2><p><a href="http://erlang.org/doc/man/appup.html" title="upgrade" target="_blank" rel="external">Application.appup</a> 文件描述了如何热升级代码<br>使用如下语法：<br><figure class="highlight prolog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="symbol">Vsn</span>,</div><div class="line">  [&#123;<span class="symbol">UpFromVsn</span>, <span class="symbol">Instructions</span>&#125;, ...],</div><div class="line">  [&#123;<span class="symbol">DownToVsn</span>, <span class="symbol">Instructions</span>&#125;, ...]&#125;.</div></pre></td></tr></table></figure></p>
-<p>Instructions 由以下内容构成：</p>
-<pre><code>{update, Mod}
-{update, Mod, supervisor}
-{update, Mod, Change}
-{update, Mod, DepMods}
-{update, Mod, Change, DepMods}
-{update, Mod, Change, PrePurge, PostPurge, DepMods}
-{update, Mod, Timeout, Change, PrePurge, PostPurge, DepMods}
-{update, Mod, ModType, Timeout, Change, PrePurge, PostPurge, DepMods}
-  Mod = atom()
-  ModType = static | dynamic
-  Timeout = int()&gt;0 | default | infinity
-  Change = soft | {advanced,Extra}
-    Extra = term()
-  PrePurge = PostPurge = soft_purge | brutal_purge
-  DepMods = [Mod]
-</code></pre><p>升级过程可以参见：<a href="http://erlang.org/doc/design_principles/release_handling.html" target="_blank" rel="external">Release Handling</a></p>
-<ol>
-<li><p>按照<a href="http://erlang.org/doc/design_principles/release_structure.html" title="创建版本" target="_blank" rel="external">Release</a>中所述的方法创建版本。</p>
-</li>
-<li><p>将释放转移到目标环境并安装在目标环境中。有关如何安装第一个目标系统的信息，请参阅系统原理。</p>
-</li>
-<li><p>对开发环境中的代码进行修改，例如错误更正。</p>
-</li>
-<li><p>在某些时候，需要制作新版本。相关的.app文件被更新，并写入一个新的.rel文件。</p>
-</li>
-<li><p>对于每个修改的应用程序，创建应用程序升级文件.appup。在此文件中，描述了如何在旧版本和新版本的应用程序之间进行升级和/或降级。</p>
-</li>
-<li><p>基于.appup文件，创建一个名为relup的版本升级文件。该文件描述如何在整个版本的旧版本和新版本之间升级和/或降级。</p>
-</li>
-<li><p>创建新的发行包并将其传输到目标系统。</p>
-</li>
-<li><p>使用发布处理程序解压缩新的发行包。</p>
-</li>
-<li><p>安装新版本，也使用发布处理程序。这是通过评估relup中的指令来完成的。可以添加，删除或重新加载模块，应用程序可以启动，停止或重新启动，等等。在某些情况下，甚至需要重启整个仿真器。</p>
-</li>
-</ol>
-<p><a href="http://erlang.org/doc/design_principles/appup_cookbook.html" title="升级办法" target="_blank" rel="external">不同功能的模块的升级办法</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/23/2017/erlang-rel/" data-id="cj0m7ir2y000fn6b70wf201vs" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-deal" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/14/deal/" class="article-date">
-  <time datetime="2017-03-14T10:40:00.000Z" itemprop="datePublished">2017-03-14</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/tmp/">tmp</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/14/deal/">报警处理流程</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>进入工作环境<br>代码部署在<code>check_ts</code>文件下。需使用python调用脚本。</p>
-<blockquote>
-<p>cd check_ts<br>python</p>
-</blockquote>
-</li>
-<li><p>导入模块<br>此时应当在python命令行下。</p>
-<pre><code>from ts import *
-import datetime
-time_from = to_datetime(&apos;2017-03-09 16:36&apos;)
-time_to = datetime.datetime.now()
-live_id = int()
-move_ts(live_id, time_from, time_to)
-</code></pre><p>如果出现警告，则需要确认视频情况。如果确定可以替换，则使用<code>move_ts_force(live_id, time_from, time_to)</code>强制替换</p>
-</li>
-<li>清除报警<br><a href="http://sz3:12345/qk_api_internal/record/check/set_normal" title="set_normal" target="_blank" rel="external">URL/qk_api_internal/record/check/set_normal</a></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/14/deal/" data-id="cj0m7ir1c0000n6b7213jlchj" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/job/">job</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-go" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-go" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/02/13/go/" class="article-date">
   <time datetime="2017-02-13T16:14:00.000Z" itemprop="datePublished">2017-02-13</time>
@@ -242,8 +92,8 @@ move_ts(live_id, time_from, time_to)
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/13/go/">golang</a>
+    <h1 class="article-title" itemprop="name">
+      golang
     </h1>
   
 
@@ -387,54 +237,28 @@ move_ts(live_id, time_from, time_to)
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-hello" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/02/13/hello/" class="article-date">
-  <time datetime="2017-02-13T06:14:00.000Z" itemprop="datePublished">2017-02-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/a/">a</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/2017/03/14/deal/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
+          报警处理流程
+        
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/13/hello/">hello</a>
-    </h1>
   
+    <a href="/2017/02/13/hello/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">hello</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>it’s my first hello <a href="http://asdf" target="_blank" rel="external">package 手册</a><br>xaa<br>x<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">asdfasd</span></div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/02/13/hello/" data-id="cj0m7ir1u000an6b70ecw54cx" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/asdf/">asdf</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
 
 </section>
         
