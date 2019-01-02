@@ -7,10 +7,9 @@
 4. 自动化。Travis CI。本地源文件--提交-->Github--触发构建-->travis ci--构建网站-->-github page。
 
 ## hexo配置
-[使用aria主题](source/hexo%E6%80%BB%E7%BB%93/)
+[使用aria主题](tree/master/source/hexo%E6%80%BB%E7%BB%93/)
 关于插件和主题配置还是一步步来，毕竟不能一口吃成胖子，过多花费时间在上面反而消耗精力而忘了初衷。
 ## Vs插件
 ### 图片问题
-利用VsCode的插件自动将粘贴板的图片保存到source/blog_images下，防止混淆将站点配置的图片放在images下，而文章中的图片早blog_images下。
-![source目录](/blog_images/2019-01-02-14-41-59.png)
+利用VsCode的插件自动将粘贴板的图片保存到source/blog_images下，防止混淆将站点配置的图片放在images下，而文章中的图放在blog_images下。
 ### markdown support
