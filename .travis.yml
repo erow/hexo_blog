@@ -1,0 +1,19 @@
+nguage: node_js
+node_js: stable
+before_install:
+- npm install -g hexo
+- npm install -g hexo-cli
+- npm install --save hexo-renderer-njucks hexo-renderer-stylus hexo-generator-search hexo-generator-feed
+install:
+- npm install
+script:
+- hexo clean
+- hexo generate
+after_success:
+  - cd ./public
+  - git init
+  - git config --global user.name 'clouderow'
+  - git config --global user.email 'clouderow@gmail.com'
+  - git add .
+  - git commit -m "generate static resources, triggerd by travis ci"
+  - git push --force "https://erow:${REPO_TOKEN}@${GH_REF}" master:master
