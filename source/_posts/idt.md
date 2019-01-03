@@ -4,8 +4,8 @@ date: 2016-01-02 13:13:54
 tags:
     -操作系统
 ---
-##GDT 的结构
-![](/blog_blog_imagesgdt.png)
+## GDT 的结构
+![](/blog_blog_images/gdt.png)
 ```
 /* segment descriptors */
 struct segdesc {
@@ -77,8 +77,8 @@ lgdt(&gdt_pd);
 gdt[x]描述了该段的工作方式。其下标x指名当cs/ds为x<<3时，该描述符生效。
 
 
-##IDT的结构
-![](/blog_blog_images0_12833186831ecn.gif)
+## IDT的结构
+![](/blog_blog_images/0_12833186831ecn.gif)
 IDT是一个最大为256项的表，每个表项为8字节。称为中断门。CPU通过IDT.base+n*8来寻找门。
 
 ```
@@ -114,7 +114,7 @@ struct gatedesc {
     (gate).gd_off_31_16 = (uint32_t)(off) >> 16;        \
 }
 ```
-##初始化
+## 初始化
 ```
 static struct gatedesc idt[256] = {{0}};
 

@@ -3,8 +3,8 @@
 menu:
   home: /
   archives: archives/
-  #categories: categories/
-  #tags: tags/
+  categories: categories/
+  tags: tags/
   #about: about/
 
 # Transform your image to those favicons in https://realfavicongenerator.net/.
