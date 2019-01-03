@@ -1,3 +1,4 @@
+---
 title: "erl 命令"
 date: "2015-05-02 13:01"
 categories：

@@ -3,6 +3,9 @@ title: hexo总结
 date: 2019-01-02 13:13:54
 tags:
 ---
+# 添加子目录
+[添加分类](https://whx4j8.github.io/2016/03/16/hexo-next-%E6%B7%BB%E5%8A%A0%E4%B8%BA%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB/)
+[模板](https://hexo.io/zh-cn/docs/templates)
 
 # 主题
 [项目主页](https://github.com/AlynxZhou/hexo-theme-aria)

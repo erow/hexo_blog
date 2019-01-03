@@ -30,22 +30,24 @@ date: "2017-05-07 10:20"
 
 下面这2组发音相似，嘴型从小到大:
 front Vowel:
-字母表示 | 音标 | 单词 |
+
+字母表示 | 音标 | 单词 
 ---------|:----:|------|--
-EE       | [i]  | heat |
-I        | [ɪ]  | hit  |
-AE       | [e]  | hate |
-AH       | [ɛ]  | head |
-A-       | [æ]  | hat  |
+EE       | [i]  | heat 
+I        | [ɪ]  | hit  
+AE       | [e]  | hate 
+AH       | [ɛ]  | head 
+A-       | [æ]  | hat  
 
 back vowel:
-字母表示 | 音标 | 单词 |
+
+字母表示 | 音标 | 单词 
 ---------|:----:|------|--
-OO       | [u]  | boot |
-U        | [ʊ]  | book |
-OW       | [o]  | boat |
-AW       | [ɔ]  | bought |
-AH       | [ʌ]  | but  |
+OO       | [u]  | boot 
+U        | [ʊ]  | book 
+OW       | [o]  | boat 
+AW       | [ɔ]  | bought 
+AH       | [ʌ]  | but  
 
 
 ## 辅音  Consonant
@@ -54,16 +56,17 @@ AH       | [ʌ]  | but  |
 sound”.
 
 Paired Consonants:
-| Unvoiced | symbol |word     | Voiced  | symbol  |word|
-|:--------:|:------:|:-------:|:------:|:-------:|:------:|
-|    P     |  [p]   |**p**et  |    B    |  [b]   |**b**ook
-|    T     |  [t]   |**t**en  |    D    |  [d]   |**d**esk
-|    F     |  [f]   |**f**at  |    V    |  [v]   |**v**est
-|    K     |  [k]   |**k**ey  |    G    |  [g]   |**g**et
-|    S     |  [s]   |**s**ing |    Z    |  [z]   |**z**oo
-|    TH    |  [θ]   |**th**ank|    TH   |  [ð]   |**th**is
-|    SH    |  [ʃ]   |**sh**ort|  GE(ZSH)|  [ʒ]   |u**s**ual
-|    CH    |  [tʃ]  |**ch**air|    J    |  [dʒ]  |**j**oin
+
+Unvoiced | symbol |word     | Voiced  | symbol  |word
+:--------:|:------:|:-------:|:------:|:-------:|:------:
+  P     |  [p]   |**p**et  |    B    |  [b]   |**b**ook
+  T     |  [t]   |**t**en  |    D    |  [d]   |**d**esk
+  F     |  [f]   |**f**at  |    V    |  [v]   |**v**est
+  K     |  [k]   |**k**ey  |    G    |  [g]   |**g**et
+  S     |  [s]   |**s**ing |    Z    |  [z]   |**z**oo
+  TH    |  [θ]   |**th**ank|    TH   |  [ð]   |**th**is
+  SH    |  [ʃ]   |**sh**ort|  GE(ZSH)|  [ʒ]   |u**s**ual
+  CH    |  [tʃ]  |**ch**air|    J    |  [dʒ]  |**j**oin
 
 还有一些单独的：
 
