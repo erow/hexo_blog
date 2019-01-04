@@ -1,8 +1,8 @@
 ---
 title: "erl 数据结构"
 date: "2015-05-02 13:01"
-categories：
-    -erlang
+categories:
+    - erlang
 tags:
     
 ---
@@ -31,7 +31,7 @@ S#myStruct.a.
 虽然也是以#打头但不是同样的东西。
 创建map`{Key1=>Value1,...,KeyN=>ValueN}`
 
-有一个专门的模块maps来操作map：
+有一个专门的模块maps来操作map:
 
 ```
 1> M1 = #{name=>adam,age=>24,date=>{july,29}}.

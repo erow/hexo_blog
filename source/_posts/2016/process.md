@@ -1,10 +1,10 @@
 ---
 title: "几种不同的过程"
 date: "2015-05-02 13:01"
-categories：
-    -idea
+categories:
+    - design
 tags:
-    
+    - idea
 ---
 # 
 

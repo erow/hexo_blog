@@ -15,6 +15,8 @@ tags:
     title: ***
     date: 201**-01-02 13:13:54
     tags:
+      - 1
+      - 2
     ---
     ```
 
@@ -53,3 +55,10 @@ mathjax:
   cdn: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-MML-AM_CHTML
 ```
 
+# 主题小修改
+原主题的背景图片仅显示在sidebar中，这样左右两边感觉被割裂了一样。背景图片也只能显示很小的一部分。因此我把它改到main-container中。通过以下步骤，很快就能定位并修改。
+1. 在浏览器中inspect特定元素。对着有背景图片的地方右键查看，然后再控制台里找到有设置背景图片的元素。发现是一个id=sidebar的div。
+2. 再往上包含article和sidebar的元素是class=ain-container的div
+3. 在文件中搜查sidebar。将代码剪切到main-container中
+   ``style="background: url(\{\{ url_for("images/background.png") \}\});" ``
+4. 移除`.sidebar{}`中设置背景颜色的代码

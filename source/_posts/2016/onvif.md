@@ -1,10 +1,10 @@
 ---
 title: "onvif"
 date: "2015-05-02 13:01"
-categories：
-    -erlang
+categories:
+    - erlang
 tags:
-    -onvif
+    - onvif
 ---
 
 
@@ -29,7 +29,7 @@ tags:
 
 ##erlang 脚本
 
-首先需要向239.255.255.250：3702 以UDP协议发送XML消息。
+首先需要向239.255.255.250:3702 以UDP协议发送XML消息。
 ```
 % udp Client 
 client(Port,Msg) ->

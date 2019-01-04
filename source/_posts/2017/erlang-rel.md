@@ -8,12 +8,12 @@ date: "2017-03-23 09:42"
 erlang总是以节点为单位组织的。  
 使用`rebar create-node nodeid=xxx`可以生成`files,reltool.config`。里面包含了各种节点信息。
 - [reltool.config][31eb1f61]  
-下面列举几个比较常用的参数：  
+下面列举几个比较常用的参数:  
 mod_cond:  
   1. all: 将会包含所有引用的模块。即在搜索路径下存在ebin的模块都会被包含。
   2. ebin: 只包含本模块。
   3. app: 包含本模块和相关模块。
-  4. derived ： 包含相关模块。
+  4. derived : 包含相关模块。
 
   lib_dir: 模块搜索目录。
   excl_sys_filters:将包含在系统目录下匹配的文件。
@@ -32,13 +32,13 @@ mod_cond:
 
 ## 2.升级
 [Application.appup][f5a8808d] 文件描述了如何热升级代码
-使用如下语法：
+使用如下语法:
 ```
 {Vsn,
   [{UpFromVsn, Instructions}, ...],
   [{DownToVsn, Instructions}, ...]}.
   ```
-Instructions 由以下内容构成：
+Instructions 由以下内容构成:
 
     {update, Mod}
     {update, Mod, supervisor}
@@ -56,7 +56,7 @@ Instructions 由以下内容构成：
       PrePurge = PostPurge = soft_purge | brutal_purge
       DepMods = [Mod]
 
-升级过程可以参见：[Release Handling](http://erlang.org/doc/design_principles/release_handling.html)
+升级过程可以参见:[Release Handling](http://erlang.org/doc/design_principles/release_handling.html)
 
 1. 按照[Release][0a7e9248]中所述的方法创建版本。
 

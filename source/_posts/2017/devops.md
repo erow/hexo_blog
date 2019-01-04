@@ -1,10 +1,10 @@
 ---
 title: "devops"
 date: "2019-01-02 13:01"
-categories：
-    -运维
+categories:
+    - 运维
 tags:
-    -ci
+    - ci
 ---
 
 # 自动化部署
@@ -13,7 +13,7 @@ tags:
 
 这里我用的是daocloud。
 
-基本步骤如下：
+基本步骤如下:
 
 ![](/blog_images/流程.png)关于测试这一块不太懂。既然应用都没有构建，测试什么呢？
 
