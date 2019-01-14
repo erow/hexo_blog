@@ -1,10 +1,7 @@
 ---
 title: "erl 命令"
 date: "2015-05-02 13:01"
-categories：
-    -erlang
-tags:
-    
+categories: erlang
 ---
 完整文档在下面，我就挑几个常用的来讲。
 
@@ -17,10 +14,10 @@ erl 的参数分为3类
 
 ##运行参数
 
-* 启动函数：``-s``,``-run`` + ``Mod [Func [Arg1, Arg2, ...]](init flag) ``，区别是``-s``传参的类型是atom，尔``-run``传递string。
-* 分布式节点：设置节点名称 ``-name``,``-sname``，节点之间通过名称来互联。``-sname``适合本机。 ``-setcookie`` 互联的节点必须有相同的cookie。
-* 执行脚本：``-eval``，后面跟上erlang代码
-* 其他：``-noshell``,``-detached``:后台执行,``-pa`` ``-pz``:添加代码路径
+* 启动函数:``-s``,``-run`` + ``Mod [Func [Arg1, Arg2, ...]](init flag) ``，区别是``-s``传参的类型是atom，尔``-run``传递string。
+* 分布式节点:设置节点名称 ``-name``,``-sname``，节点之间通过名称来互联。``-sname``适合本机。 ``-setcookie`` 互联的节点必须有相同的cookie。
+* 执行脚本:``-eval``，后面跟上erlang代码
+* 其他:``-noshell``,``-detached``:后台执行,``-pa`` ``-pz``:添加代码路径
 
 
 ##普通参数

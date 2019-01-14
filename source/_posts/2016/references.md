@@ -1,15 +1,15 @@
 ---
 title: "references"
 date: "2015-05-02 13:01"
-categories：
-    -c plus plus
+categories:
+    - "c plus plus"
 tags:
     
 ---
 
 引用比我想象中的难，因此我觉得有必要单独来讲。
 
-首先提一下引用的作用：1. 取代指针 2.延长生命周期
+首先提一下引用的作用:1. 取代指针 2.延长生命周期
 
 引用的声明很简单，总共就2种形式。
 ```
@@ -25,7 +25,7 @@ void f(std::vector<T>&& param); // rvalue reference
 template<typename T>
 void f(T&& param); // not rvalue reference
 ```
-大家可以使用如下方法实验：
+大家可以使用如下方法实验:
 ```
 template <typename T>
 class type;
@@ -51,7 +51,7 @@ int main()
 ```
 结果可以在编译器的错误信息里面得到
 
-以上结果可以得到以下信息：
+以上结果可以得到以下信息:
 > 1. 类型推导（auto\template\decltype）加上&& 得到的是泛引用。
 > 2. 普通类型+&&,只是右值引用。
 > 3. 右值引用在使用的时候可以理解为左值。

@@ -1,13 +1,11 @@
 ---
 title: "type"
 date: "2015-05-02 13:01"
-categories：
-    -c plus plus
-tags:
-    
+categories:
+    - "c plus plus"
 ---
 
-这里要提的不是简单的基本类型。主要内容包括：
+这里要提的不是简单的基本类型。主要内容包括:
 
 ####1.左值右值 2.引用 3. const 关键字 4.类型转换
 
@@ -16,20 +14,20 @@ tags:
 这是一种很隐含的类型。因为不能简单的通过关键字来进行修饰。为什么需要严格区分左值、右值？右值可以理解为一个临时的数据，它即将销毁，如果我们能够对它加以区分可以重新利用这部分资源。同时他们是理解 move, forward 等新语义的基础。或许这是c++11最重要的特性，因为如线程库一类只是语言的扩展，右值的引入使得程序设计有了新的思路。
 
 完整的LValue和RValue的界定
-![](/blog_images2012070118490149.png)
+![](/blog_images/2012070118490149.png)
 
 一般来说左值对应于修改操作，右值对应于赋值操作。
 
   1. lvalue（左值）:
   
-  lvalue指代一个函数或者对象。例如：
+  lvalue指代一个函数或者对象。例如:
 
  > E是指针，则*E是lvalue
   一个函数的返回值是左值引用，其返回值是lvalue。例如int& foo();
 
   2. xvalue（expiring value，临终值）:
     
-    xvalue指代一个对象，但是和lvalue不同，这个对象即将消亡。具体来说，xvalue是包含了右值引用的表达式。因为右值引用是C++11新引入的东西，所以xvalue也是一个新玩意。例如：
+    xvalue指代一个对象，但是和lvalue不同，这个对象即将消亡。具体来说，xvalue是包含了右值引用的表达式。因为右值引用是C++11新引入的东西，所以xvalue也是一个新玩意。例如:
 
   >一个函数的返回值是右值引用，其返回值是xvalue。例如int&& foo();
 
@@ -40,7 +38,7 @@ tags:
   rvalue是xvalue和prvalue的统称。因为引入了右值引用，rvalue的定义在C++中被扩大化了。
 
   5. prvalue（pure rvalue，纯右值）
-  prvalue指代一个**临时对象**、一个临时对象的子对象或者一个没有分配给任何对象的**值**。prvalue即老标准中的rvalue。例如：
+  prvalue指代一个**临时对象**、一个临时对象的子对象或者一个没有分配给任何对象的**值**。prvalue即老标准中的rvalue。例如:
 
 
     一个函数的返回值是平常类型，其返回值是rvalue。例如int foo();
@@ -70,7 +68,7 @@ tags:
 
 需要注意的是右值与左值是可以相互转化的。比如我们可以调用f1返回的对象中的 成员函数，总的来说右值转换为左值容易一些，但是无法改变右值即将消亡的事实。对于右值我们必须马上救济``widget w0=f1();``
 
-**一个简单判断右值的方法就是：能不能去初始化右值引用**
+**一个简单判断右值的方法就是:能不能去初始化右值引用**
 
 一个函数的参数总是左值。即使声明为右值引用``void f(Widget&& w);``
 
@@ -148,7 +146,7 @@ const int b=0;
 
 ## 类型推导
 
-c++中使用了3种类型推导方法：``auto``,`template`,`decltype`.
+c++中使用了3种类型推导方法:``auto``,`template`,`decltype`.
 
 ####template
 
@@ -213,7 +211,7 @@ fun(keyVals);
 //调用以上语句
 //如果fun的声明如下
 template<typename T>
-void fun(T a)//void fun<int*>(T)：T=int*
+void fun(T a)//void fun<int*>(T):T=int*
 {
 }
 
@@ -243,7 +241,7 @@ return N; // constant
                // type is void (&)(int, double)```
 
 ##auto
-其实和template没有太大区别。最大的不同在于：
+其实和template没有太大区别。最大的不同在于:
 ```
 auto x5 = {...}; // std::initializer_list<T>
 ```

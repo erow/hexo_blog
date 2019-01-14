@@ -6,13 +6,13 @@ A Hexo theme inspired by Kalafina's song ARIA.
 
 [English README](README.md)
 
-主题预览：[喵's StackHarbor](http://aria.ismyonly.one/)
+主题预览:[喵's StackHarbor](http://aria.ismyonly.one/)
 
 ![屏幕截图](ARIA.png)
 
 # 捐助
 
-作为一个学生，我没有能带来稳定收入的工作，我只是出于热爱占用我的空闲时间编写了这个主题。如果你喜欢它或者它和它的代码帮助到了你，你可以通过微信支付或者支付宝或者 PayPal 捐助我来支持我的开发，下面是我的二维码和链接：
+作为一个学生，我没有能带来稳定收入的工作，我只是出于热爱占用我的空闲时间编写了这个主题。如果你喜欢它或者它和它的代码帮助到了你，你可以通过微信支付或者支付宝或者 PayPal 捐助我来支持我的开发，下面是我的二维码和链接:
 
 - 微信支付
 
@@ -63,7 +63,7 @@ $ npm install --save hexo-renderer-njucks hexo-renderer-stylus hexo-generator-se
 
 ## 克隆仓库
 
-把它克隆到 Hexo 站点下的 `themes/aria` 目录：
+把它克隆到 Hexo 站点下的 `themes/aria` 目录:
 
 ```
 $ git clone https://github.com/AlynxZhou/hexo-theme-aria themes/aria
@@ -112,7 +112,7 @@ feed:
 
 ### 高亮设置
 
-Hexo 内置的语法高亮功能使用了 highlight.js，但默认却没有给高亮的类名添加 `hljs-` 的前缀，而 highlight.js 项目提供的 CSS 文件却使用了这个前缀。为了保持和 highlight.js 项目 CSS 文件的兼容性，你需要像下面一样添加 `hljs: true` 到对应的配置里：
+Hexo 内置的语法高亮功能使用了 highlight.js，但默认却没有给高亮的类名添加 `hljs-` 的前缀，而 highlight.js 项目提供的 CSS 文件却使用了这个前缀。为了保持和 highlight.js 项目 CSS 文件的兼容性，你需要像下面一样添加 `hljs: true` 到对应的配置里:
 
 ```yaml
 highlight:
@@ -125,7 +125,7 @@ highlight:
 
 ## 复制 ARIA 配置
 
-把 `_config.yml.example` 复制为 `_config.yml`：
+把 `_config.yml.example` 复制为 `_config.yml`:
 
 ```
 $ cp themes/aria/_config.yml.example themes/aria/_config.yml
@@ -133,11 +133,11 @@ $ cp themes/aria/_config.yml.example themes/aria/_config.yml
 
 ## 修改主题配置
 
-下面的配置需要修改 ARIA 目录下的 **主题的** `_config.yml`，不需要修改所有的配置项，只要修改你需要的部分就可以了：
+下面的配置需要修改 ARIA 目录下的 **主题的** `_config.yml`，不需要修改所有的配置项，只要修改你需要的部分就可以了:
 
 ### 菜单设置
 
-如果你想要启用“分类”和“标签”页面，取消注释 `categories` 和 `tags`，然后运行 `hexo new page categories` 和 `hexo new page tags` 生成这两个页面，最后分别把 `layout: categories` 和 `layout: tags` 添加到对应文件的文件头里。如果你想要启用“关于”页面，运行 `hexo new page about` 并取消注释即可：
+如果你想要启用“分类”和“标签”页面，取消注释 `categories` 和 `tags`，然后运行 `hexo new page categories` 和 `hexo new page tags` 生成这两个页面，最后分别把 `layout: categories` 和 `layout: tags` 添加到对应文件的文件头里。如果你想要启用“关于”页面，运行 `hexo new page about` 并取消注释即可:
 
 ```yaml
 menu:
@@ -214,7 +214,7 @@ ARIA 内置了四种常见代码高亮主题，设置 `highlight` 项为 `atom-o
 
 ### 社交链接
 
-先将 `social` 下面 `enable` 设置为 `true`，然后在 `links` 下添加你的个人社交链接，格式如下：
+先将 `social` 下面 `enable` 设置为 `true`，然后在 `links` 下添加你的个人社交链接，格式如下:
 
 ```yaml
 social:
@@ -232,7 +232,7 @@ social:
 
 ### 友情链接
 
-先将 `blogroll` 下面的 `enable` 设置为 `true`，然后在 `links` 下添加友情链接，格式如下：
+先将 `blogroll` 下面的 `enable` 设置为 `true`，然后在 `links` 下添加友情链接，格式如下:
 
 ```yaml
 blogroll:
@@ -254,9 +254,9 @@ blogroll:
 
 如果你使用 commentjs，首先将它的 `enable` 设置成 `true`，然后根据你的网站页面存放位置设置 `type`，支持 `github` 和 `oschina`，`user` 是你在这些网站的用户名，`repo` 是你这个仓库的名字，`client_id` 和 `client_secret` 需要你去 [github](https://github.com/settings/applications/new) 或者 [oschina](https://git.oschina.net/oauth/applications/new) 生成一个应用，然后复制 Token。
 
-如果启用多个评论系统，默认只会显示顺序靠前的（顺序：HyperComments，Disqus，commentjs）。
+如果启用多个评论系统，默认只会显示顺序靠前的（顺序:HyperComments，Disqus，commentjs）。
 
-Tips：如果想批量更改新生成的文件的文件头，编辑站点目录下 `scaffolds` 目录里的文件，Hexo 会把这个目录内的文件作为生成新文件时的模板。
+Tips:如果想批量更改新生成的文件的文件头，编辑站点目录下 `scaffolds` 目录里的文件，Hexo 会把这个目录内的文件作为生成新文件时的模板。
 
 ### 打赏
 
@@ -270,7 +270,7 @@ Tips：如果想批量更改新生成的文件的文件头，编辑站点目录�
 
 首先将 `custom_font` 下面的 `enable` 为 `true`，然后去提供网页字体服务的网站比如 [Google Fonts](https://fonts.google.com/)（如果你不能访问，找个替代品），然后选择所有你需要的字体，把生成的 `<link>` 标签里面的 `href` 属性网址复制出来粘贴到 `link` 选项下面。然后给不同的部分设置不同的字体。
 
-示例如下：
+示例如下:
 
 ```yaml
 custom_font:
@@ -289,19 +289,19 @@ Markdown 会被编译成 HTML，所以你可以直接在有效的 Markdown 文�
 
 ### 居中引用
 
-只要给你的 HTML 代码添加 `.centerquote` 这个类，你就能得到一个有上下边框的居中引用。推荐给 `<blockquote></blockquote>` 标签使用这个类：
+只要给你的 HTML 代码添加 `.centerquote` 这个类，你就能得到一个有上下边框的居中引用。推荐给 `<blockquote></blockquote>` 标签使用这个类:
 
 ```HTML
 <blockquote class="centerquote">居中引用样例</blockquote>
 ```
 
-看起来像这样：
+看起来像这样:
 
 ![居中引用样例][centerquote-example]
 
 ### 彩色警告块
 
-只要给你的 HTML 代码添加 `.alert-red`, `.alert-green` 或 `.alert-blue`：
+只要给你的 HTML 代码添加 `.alert-red`, `.alert-green` 或 `.alert-blue`:
 
 ```HTML
 <div class="alert-red">红色警告块样例</div>
@@ -309,7 +309,7 @@ Markdown 会被编译成 HTML，所以你可以直接在有效的 Markdown 文�
 <div class="alert-blue">蓝色警告块样例</div>
 ```
 
-看起来像这样：
+看起来像这样:
 
 ![警告块样例][alert-example]
 

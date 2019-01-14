@@ -132,7 +132,7 @@ $ cp themes/aria/_config.yml.example themes/aria/_config.yml
 
 ## Edit Theme Config
 
-Following needs to be changed in **theme's** `_config.yml` in ARIA's dir, not all config needs customization, you just change what you need：
+Following needs to be changed in **theme's** `_config.yml` in ARIA's dir, not all config needs customization, you just change what you need:
 
 ### Menu Settings
 
@@ -255,7 +255,7 @@ If you use commentjs, first set `enable` to `true`, then set `type` according to
 
 If you enable more than one comment services, only the one shows in front of the queue will be shown (queue: HyperComments, Disqus, commentjs).
 
-Tips：If you want to edit all new pages' front-matter, just edit files in your website's `scaffolds` dir, Hexo uses them as template when create new page or post.
+Tips:If you want to edit all new pages' front-matter, just edit files in your website's `scaffolds` dir, Hexo uses them as template when create new page or post.
 
 ### Reward
 
