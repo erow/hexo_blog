@@ -6,13 +6,14 @@ categories: [ML]
 ---
 
 [lenet5](http://yann.lecun.com/exdb/lenet/) 实现了手写数字的识别。其关键在于CNN的使用。其结构如下：
-![lenet5](https://img-blog.csdn.net/20141208104822281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveHVhbnl1YW5zZW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+
+![](../../blog_images/2019-02-18-09-49-21.png)  
 
 # convolution 
-[通俗地理解卷积运算](https://www.matongxue.com/madocs/32.html) 数学表达式：
+[通俗地理解卷积运算](https://www.matongxue.com/madocs/32.html) 数学表达式：    
 $$ (f*g)(x) = \int_{-\infty}^\infty f(\tau)g(x-\tau)d\tau $$
-可以把$f(x)$理解为信号，$g(x)$理解为发出信号的时机。那么卷积就代表了当前时刻该信号的叠加效果。[在图像中卷积的意义](https://zhuanlan.zhihu.com/p/30994790)。虽然卷积的过程看上去很像内积，但其实两者有很大的区别，两者的前进方向不同。为了方便计算，将g中的下标进行修改，使得卷积运算可以直接用内积来表示。(将g旋转180$\degree$)  
-![](2019-02-13-19-04-01.png)  
+可以把$f(x)$理解为信号，$g(x)$理解为发出信号的时机。那么卷积就代表了当前时刻该信号的叠加效果。[在图像中卷积的意义](https://zhuanlan.zhihu.com/p/30994790)。虽然卷积的过程看上去很像内积，但其实两者有很大的区别，两者的前进方向不同。为了方便计算，将g中的下标进行修改，使得卷积运算可以直接用内积来表示。(将g旋转$180\degree$)  
+![](../../blog_images/2019-02-13-19-04-01.png)  
 卷积后得到的矩阵称为**feature map**  
 ![](https://mlnotebook.github.io/img/CNN/convSobel.gif)  
 如果特征刚好在角落上，那么上面的卷积过程无法检测到。因此，可以在输入矩阵上填充**padding**。同时使得输入与输出的大小相同。 ![Zero-padding is used so that the resulting image doesn't shrink.](https://mlnotebook.github.io/img/CNN/convZeros.png)  
@@ -44,7 +45,7 @@ $$ (f*g)(x) = \int_{-\infty}^\infty f(\tau)g(x-\tau)d\tau $$
 输出：$6\times14\times14$
 ## C3
 这里卡了很久，不知道多个feature map 如何进行卷积。其实可以把多个feature map当作多个通道，每个通道上各自进行卷积再叠加在一起。或者说这个卷积具有3维结构（前面都是二维的），只不过其中一维的大小为3，因此正好被压回2维结构。3X14X14的输入，3X5X5的核。
-![](https://img-blog.csdn.net/20141208104830148?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveHVhbnl1YW5zZW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)  
+![](../../blog_images/2019-02-18-09-47-33.png)  
 参数：3X5X5 6个，4X5X5 6+3个，6X5X5 1个  
 输出：16X10X10
 ## S4
@@ -66,6 +67,56 @@ $$ y_i=\sum_j(x_j-w_{ij})^2 $$
 如果模型有k个输出，即k个分类。那么$w_{k*}$代表了该类别在特征空间中的位置。显然，离该特征向量越远，输出越大。这称为**distributed code**
 ## Loss function
 
+## 关键代码
+写了一通代码发现直接炸了，运算速度实在太慢，简直出不了结果。实验了一下发现python的for循环效率极低，要实现神经网络，必须全部使用专门优化过的工具。如numpy，最好全程使用矩阵运算并避免矩阵的复制。使用卷积的时候可以利用[im2col](https://blog.csdn.net/dwyane12138/article/details/78449898)
+```
+def use_time(f,c=1,*args):
+    import datetime
+    start = datetime.datetime.now()
+    for i in range(c):
+        f(*args)
+    return datetime.datetime.now()-start
+
+def im2col(image, ksize, stride):
+    # 100 , 5,1  0:00:12.587087
+    # image is a 4d tensor([batchsize, width ,height, channel])
+    image_col = []
+    for i in range(0, image.shape[1] - ksize + 1, stride):
+        for j in range(0, image.shape[2] - ksize + 1, stride):
+            col = image[:, i:i + ksize, j:j + ksize, :].reshape([-1])
+            image_col.append(col)
+    image_col = np.array(image_col)
+    return image_col
+
+def im2col1(image, ksize, stride):
+    # 0:00:02
+    shape_r =(image.shape[0] - ksize + 1)//stride
+    shape_c =(image.shape[1] - ksize + 1)//stride
+    channel=image.shape[3]
+    m = image.shape[0]
+    col = np.zeros([shape_r*shape_c,ksize*ksize*channel*m])
+    for i in range(shape_r):
+        for j in range(shape_c):
+            col[shape_r*i+j,:] = image[:, i:i + ksize, j:j + ksize, :].reshape([-1])
+    return col
+
+def im2col2(image, ksize, stride):
+    # 100 , 5,1  0:00:12.587087
+    # image is a 4d tensor([batchsize, width ,height, channel])
+    image_col = []
+    for i in range(0, image.shape[1] - ksize + 1, stride):
+        for j in range(0, image.shape[2] - ksize + 1, stride):
+            col = image[:, i:i + ksize, j:j + ksize, :].reshape([-1])
+            image_col.append(col)
+
+    return np.concatenate(image_col)
+
+images=np.random.rand(10,100,100,6)
+
+print(use_time(im2col,100,images,5,1))
+print(use_time(im2col1,100,images,5,1))
+print(use_time(im2col2,100,images,5,1))
+```
 
 # Appendix
 ## implement
