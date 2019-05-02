@@ -7,7 +7,7 @@ categories: [ML]
 # 反向传播网络
 
 反向传播是神经网络中求最优参数的一个运用梯度下降算法的应用。
-![简化模型](/blog_images/NN.jpg)
+![简化模型](/blog_images/NN.jpg)  
 这是我总结的简化后的神经网络的模型。一个layer表示一个隐层。具体的计算过程可以参见andrew的ML，这里采用的符号z,a也是依据课程的介绍。
 $$ 
  a_1^{(2)} = g(\Theta_{10}^{(1)}x_0 + \Theta_{11}^{(1)}x_1 + \Theta_{12}^{(1)}x_2 + \Theta_{13}^{(1)}x_3) \newline a_2^{(2)} = g(\Theta_{20}^{(1)}x_0 + \Theta_{21}^{(1)}x_1 + \Theta_{22}^{(1)}x_2 + \Theta_{23}^{(1)}x_3) \newline a_3^{(2)} = g(\Theta_{30}^{(1)}x_0 + \Theta_{31}^{(1)}x_1 + \Theta_{32}^{(1)}x_2 + \Theta_{33}^{(1)}x_3) \newline h_\Theta(x) = a_1^{(3)} = g(\Theta_{10}^{(2)}a_0^{(2)} + \Theta_{11}^{(2)}a_1^{(2)} + \Theta_{12}^{(2)}a_2^{(2)} + \Theta_{13}^{(2)}a_3^{(2)}) \newline $$

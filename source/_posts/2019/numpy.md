@@ -109,7 +109,7 @@ np.add(a, 1, out=a)    # 0.008843
 `np.stride_tricks.as_strided`
 这个方法可以起到分块的作用，同时也能改变矩阵的形状，大小，但是它返回的其实是一个view，因此十分高效。
 首先把A看作是一维的，然后给出想要的形状，最后规定每一步的长度。
-![](../../blog_images/2019-02-18-13-28-18.png)  
+![](/blog_images/2019-02-18-13-28-18.png)  
 比如im2col算法就有一个简单高效的实现：
 ```python
 def im2col_3d(A, BSZ: tuple):

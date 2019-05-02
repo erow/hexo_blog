@@ -7,13 +7,13 @@ categories: [ML]
 
 [lenet5](http://yann.lecun.com/exdb/lenet/) 实现了手写数字的识别。其关键在于CNN的使用。其结构如下：
 
-![](../../blog_images/2019-02-18-09-49-21.png)  
+![](/blog_images/2019-02-18-09-49-21.png)  
 
 # convolution 
 [通俗地理解卷积运算](https://www.matongxue.com/madocs/32.html) 数学表达式：    
 $$ (f*g)(x) = \int_{-\infty}^\infty f(\tau)g(x-\tau)d\tau $$
 可以把$f(x)$理解为信号，$g(x)$理解为发出信号的时机。那么卷积就代表了当前时刻该信号的叠加效果。[在图像中卷积的意义](https://zhuanlan.zhihu.com/p/30994790)。虽然卷积的过程看上去很像内积，但其实两者有很大的区别，两者的前进方向不同。为了方便计算，将g中的下标进行修改，使得卷积运算可以直接用内积来表示。(将g旋转$180\degree$)  
-![](../../blog_images/2019-02-13-19-04-01.png)  
+![](/blog_images/2019-02-13-19-04-01.png)  
 卷积后得到的矩阵称为**feature map**  
 ![](https://mlnotebook.github.io/img/CNN/convSobel.gif)  
 如果特征刚好在角落上，那么上面的卷积过程无法检测到。因此，可以在输入矩阵上填充**padding**。同时使得输入与输出的大小相同。 ![Zero-padding is used so that the resulting image doesn't shrink.](https://mlnotebook.github.io/img/CNN/convZeros.png)  
@@ -45,7 +45,7 @@ $$ (f*g)(x) = \int_{-\infty}^\infty f(\tau)g(x-\tau)d\tau $$
 输出：$6\times14\times14$
 ## C3
 这里卡了很久，不知道多个feature map 如何进行卷积。其实可以把多个feature map当作多个通道，每个通道上各自进行卷积再叠加在一起。或者说这个卷积具有3维结构（前面都是二维的），只不过其中一维的大小为3，因此正好被压回2维结构。3X14X14的输入，3X5X5的核。
-![](../../blog_images/2019-02-18-09-47-33.png)  
+![](/blog_images/2019-02-18-09-47-33.png)  
 参数：3X5X5 6个，4X5X5 6+3个，6X5X5 1个  
 输出：16X10X10
 ## S4
