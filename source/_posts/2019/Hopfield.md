@@ -113,3 +113,21 @@ $$w_{ij}=c\sum_{\mu=1}^{M}p_{i}^{\mu}\,p_{j}^{\mu}\,$$
 Fig. 17.7: Hopfield model. A. Top: Three random patterns μ=1,2,3 in a network of N=8 neurons. Black squares (pμi=+1) and white squares (pμi=−1) are arranged in random order. Bottom: The overlap m1=(1/N)∑ip1iSi(t) measures the similarity between the current state S(t)={Si(t);1≤i≤N} and the first pattern. Here only a single neuron exhibits a mismatch (dotted line). The desired value in the pattern is shown as black and white squares, while the current state is indicated as black and white circles; schematic figure. B. Orthogonal patterns have a mutual overlap of zero so that correlations are Cμν=(1/N)∑ipμipνi=δμν (top) whereas random patterns exhibit a small residual overlap for μ≠ν (bottom).
 
 ## 模式恢复
+在很多记忆恢复的实验中,在回忆事件开始时给出局部信息的线索.通过验证丢失信息的完成度来评估记忆内容的恢复程度.
+
+为了在hopfield 模型中模仿记忆恢复,给出网络初始值$S(t_{0})=\{S_{i}(t_{0});1\leq i\leq N\}$.初始化后,网络在动力学下自由演化.理想情况下动力学会收敛到一个固定的相关模式u上,这个模式与初始状态是最接近的.
+
+为了衡量相似度,我们提出重叠.(每个点相同为1不同为-1)
+$$m^{\mu}(t)={1\over N}\sum_{i}p_{i}^{\mu}\,S_{i}(t)\,.$$
+如果模式被恢复重叠度最大为1,当$S_{i}(t)=p_{i}^{\mu}$.如果当前状态与模式u完全不相关,它会接近于0.如果每个神经元的取值都相反,此时达到最小值$m^{\mu}(t)=-1$.
+
+重叠度在分析网络动力学中扮演了重要作用.实际上,输入$h_i$是:
+$$h_{i}(t)=\sum_{j}w_{ij}\,S_{j}(t)=c\sum_{j=1}^{N}\sum_{\mu=1}^{M}p_{i}^{\mu}\,%
+p_{j}^{\mu}\,S_{j}(t)=c\,N\,\sum_{\mu=1}^{M}p_{i}^{\mu}\,m^{\mu}(t)$$
+为了使结果无关于输入规模的大小,使用标准化系数$c=1/N$.下面除非特别说明,总使用这个系数.
+
+为了进一步讨论,我们现在在动力学公式并且发现
+$${\rm Prob}\{S_{i}(t+\Delta t)=+1|h_{i}(t)\}=g\left[\sum_{\mu=1}^{M}p_{i}^{\mu}%
+\,m^{\mu}(t)\right]\,.$$
+![](https://neuronaldynamics.epfl.ch/online/x547.png)![](https://neuronaldynamics.epfl.ch/online/x548.png)  
+Fig. 17.8: Memory retrieval in the Hopfield model. A. The overlap mν(t+Δt) with a specific pattern ν is given as a function of the overlap with the same pattern mν(t) in the previous time step (solid line); cf. Eq. (17.16). The overlap with the M−1 other patterns is supposed to vanish. The iterative update can be visualized as a path (arrow) between the overlap curve and the diagonal (dashed line). The dynamics approach a fixed point (circle) with high overlap corresponding to the retrieval of the pattern. B. The probability Perror that during retrieval an erroneous state-flip occurs corresponds to the shaded area under the curve; cf. Eq. (17.20). The width σ of the curve is proportional to the pattern load M/N; schematic figure.
